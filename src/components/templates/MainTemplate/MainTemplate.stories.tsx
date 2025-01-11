@@ -3,13 +3,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { MainTemplate } from '.';
 
 const meta: Meta<typeof MainTemplate> = {
-  title: 'Templates/MainTemplate',
-  component: MainTemplate,
-  tags: ['autodocs'],
   args: {
     children: 'Example',
     variant: 'default',
   },
+  component: MainTemplate,
+  tags: ['autodocs'],
+  title: 'Templates/MainTemplate',
 };
 
 export default meta;

@@ -3,13 +3,13 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Navbar } from '.';
 
 const meta: Meta<typeof Navbar> = {
-  title: 'Organisms/Navbar',
-  component: Navbar,
-  tags: ['autodocs'],
   args: {
     children: 'Example',
     variant: 'default',
   },
+  component: Navbar,
+  tags: ['autodocs'],
+  title: 'Organisms/Navbar',
 };
 
 export default meta;

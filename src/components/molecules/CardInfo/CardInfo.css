@@ -1,0 +1,44 @@
+.button-one {
+  background-image: linear-gradient(
+    to right,
+    #009245,
+    #d0c200,
+    #00a8c5,
+    #d9e021
+  );
+  box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+  background-size: 300% 100%;
+}
+.button-two {
+  background-image: linear-gradient(
+    to right,
+    #ffbb00,
+    #e43603,
+    #ff6290,
+    #ff5000
+  );
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+  background-size: 300% 100%;
+}
+.button-one:hover {
+  background-image: linear-gradient(
+    to left,
+    #009245,
+    #d0c200,
+    #00a8c5,
+    #d9e021
+  );
+  box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+  background-size: 300% 100%;
+}
+.button-two:hover {
+  background-image: linear-gradient(
+    to left,
+    #ffbb00,
+    #e43603,
+    #ff6290,
+    #ff5000
+  );
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+  background-size: 300% 100%;
+}

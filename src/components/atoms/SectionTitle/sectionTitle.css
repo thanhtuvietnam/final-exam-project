@@ -1,0 +1,22 @@
+/* SectionTitle */
+
+.dark .sectionTitle-custom {
+  background: linear-gradient(to right, rgb(34, 142, 229), rgb(255, 32, 112));
+  -webkit-background-clip: text; /* Hỗ trợ cho các trình duyệt dựa trên webkit */
+  background-clip: text;
+  color: transparent; /* Biến chữ thành trong suốt */
+  font-weight: 700;
+  padding: 13px 0px;
+  border-image: linear-gradient(to right, rgb(34, 142, 229), rgb(255, 32, 112));
+  border-image-slice: 1;
+}
+.sectionTitle-custom {
+  background: linear-gradient(to right, rgb(3, 10, 27), rgb(255, 32, 112));
+  -webkit-background-clip: text; /* Hỗ trợ cho các trình duyệt dựa trên webkit */
+  background-clip: text;
+  color: transparent; /* Biến chữ thành trong suốt */
+  font-weight: 700;
+  padding: 13px 0px;
+  border-image: linear-gradient(to right, rgb(3, 10, 27), rgb(255, 32, 112));
+  border-image-slice: 1;
+}
