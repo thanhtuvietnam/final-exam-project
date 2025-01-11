@@ -1,5 +1,4 @@
 import { render, screen } from '@/tests/test-utils';
-
 import '@testing-library/jest-dom';
 
 import { MainTemplate } from '.';

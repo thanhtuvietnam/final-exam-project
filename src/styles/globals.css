@@ -1,27 +1,242 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss' source('../../src/');
+/* @import 'tailwindcss'; */
+@variant dark (&:where(.dark, .dark *));
+/* @plugin '@tailwindcss/typography'; */
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  ul,
+  ol {
+    @apply m-0 list-none p-0;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@theme {
+  /* NOTE: reset font */
+  /* --font-*: initial; */
+
+  /* NOTE: color custom */
+  --primary-color: #ebfaff;
+  --second-color: #d0d0d0;
+  --black-color: #030a1b;
+  --card-background: #1e1e1e;
+  --card-primary-color: #03f2f8;
+  --card-secondary-color: #03a8f5;
+  --card-text-color: #ebf0ff;
+  --card-accent-color: #ff5722;
+  --card-hover-scale: 1.02;
+  --card-transition-speed: 0.3s;
+
+  --color-bgdark: oklch(14.78% 0.0395 261.07);
+  --color-bglight: oklch(97.55% 0.017177930197553693 219.64812450354856);
+  --color-main-aliceBlue-100: oklch(70.64% 0.0055 228.85);
+  --color-main-aliceBlue-150: oklch(74.1% 0.0064 223.48);
+  --color-main-aliceBlue-200: oklch(77.56% 0.008 228.89);
+  --color-main-aliceBlue-250: oklch(81.08% 0.0104 212.53);
+  --color-main-aliceBlue-300: oklch(84.46% 0.0117 217.56);
+  --color-main-aliceBlue-350: oklch(87.78% 0.0126 215.83);
+  --color-main-aliceBlue-400: oklch(91.1% 0.014 219.63);
+  --color-main-aliceBlue-450: oklch(94.28% 0.0158 216.67);
+  --color-main-aliceBlue-500: oklch(92.32% 0.0546 219.75);
+  --color-main-aliceBlue-550: oklch(83.27% 0.1169 222.48);
+  --color-main-aliceBlue-600: oklch(
+    79.36% 0.13806910608269127 225.99507439898784
+  );
+  --color-main-aliceBlue-700: oklch(
+    76.29% 0.15100804601026707 230.23720616604132
+  );
+  --color-main-aliceBlue-800: oklch(58.09% 0.1162 230.35);
+  --color-main-aliceBlue-900: oklch(47.11% 0.0933 229.73);
+  --color-main-darkGreen-100: oklch(75.7% 0.1043 267.5);
+  --color-main-darkGreen-200: oklch(63.99% 0.1609 265.72);
+  --color-main-darkGreen-300: oklch(53.38% 0.2156 263.86);
+  --color-main-darkGreen-400: oklch(50.73% 0.1739 264.46);
+  --color-main-darkGreen-500: oklch(43.6% 0.147 264.51);
+  --color-main-darkGreen-600: oklch(35.21% 0.1489 263.83);
+  --color-main-darkGreen-700: oklch(25.6% 0.0974 263.84);
+  --color-main-deepCerise-100: oklch(94.19% 0.0312 343.83);
+  --color-main-deepCerise-150: oklch(88.33% 0.0653 344.29);
+  --color-main-deepCerise-200: oklch(82.74% 0.0979 345.04);
+  --color-main-deepCerise-250: oklch(77.35% 0.1334 346.17);
+  --color-main-deepCerise-300: oklch(75.79% 0.1281 351.92);
+  --color-main-deepCerise-350: oklch(68.16% 0.1956 349.77);
+  --color-main-deepCerise-400: oklch(64.44% 0.2208 351.7);
+  --color-main-deepCerise-500: oklch(56.71% 0.2221 355);
+  --color-main-deepCerise-550: oklch(50.62% 0.1968 354.77);
+  --color-main-deepCerise-600: oklch(44.29% 0.1713 354.4);
+  --color-main-deepCerise-650: oklch(38.02% 0.1451 353.71);
+  --color-main-deepCerise-700: oklch(31.21% 0.117 352.85);
+  --color-main-deepCerise-750: oklch(24.09% 0.0858 351.47);
+  --color-main-deepCerise-800: oklch(16.41% 0.0555 348.56);
+  --color-main-deepCerise-900: oklch(6.72% 0 0);
+  --color-main-summerSky-100: oklch(95.58% 0.0179 245.39);
+  --color-main-summerSky-200: oklch(91.32% 0.0364 241.81);
+  --color-main-summerSky-300: oklch(78.57% 0.0931 244.43);
+  --color-main-summerSky-400: oklch(70.59% 0.1282 246.02);
+  --color-main-summerSky-500: oklch(63.2% 0.1599 248.75);
+  --color-main-summerSky-600: oklch(51.76% 0.1354 249.62);
+  --color-main-summerSky-650: oklch(45.43% 0.1169 249.25);
+  --color-main-summerSky-700: oklch(39.22% 0.0977 248.59);
+  --color-main-summerSky-750: oklch(25.23% 0.0553 246.42);
+  --color-main-summerSky-800: oklch(17.51% 0.0338 242.4);
+  --color-main-summerSky-900: oklch(6.72% 0 0);
+  --color-neutral-gray: oklch(59.99% 0 0);
+  --color-semantic-alizarin: oklch(59.1% 0.2255 27.74);
+  --color-semantic-analogus: oklch(81.76% 0.2622 143.6);
+  --color-semantic-complementory: oklch(68.79% 0.161 53.7);
+  --color-semantic-goldenFizz: oklch(87.2% 0.1798 106.11);
+  --color-semantic-springGreen: oklch(86.29% 0.242 149.24);
+
+  /* NOTE: animate custom */
+  --animate-bookmarkshake: bookmarkshake 1s ease-in-out infinite;
+  --animate-shimmer: shimmer 1s infinite linear;
+
+  @keyframes bookmarkshake {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: rotate(0deg);
+    }
+    30% {
+      transform: rotate(-10deg);
+    }
+    70% {
+      transform: rotate(10deg);
+    }
+  }
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* NOTE: screen device */
+  --breakpoint-fullHd: 1920px;
+  --breakpoint-macbookPro: 1700px;
+  --breakpoint-macbookAir: 15590px;
+  --breakpoint-prodisPlay: 1484px;
+  --breakpoint-imac: 1120px;
+  --breakpoint-ipadMini: 600px;
+  --breakpoint-surfacePro: 570px;
+  --breakpoint-galaxyTabS7: 520px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* NOTE: utility custom */
+@utility tw-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@utility tw-flex-1 {
+  display: flex;
+  align-items: center;
+}
+
+@utility container {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  padding-block: 1rem;
+}
+
+@utility backdrop-hack {
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+}
+@utility tw-bounce-effect {
+  transition: all 150ms ease-in-out;
+  &:hover {
+    transform: translateY(-0.125rem);
   }
+  &:active {
+    transform: translateY(0.125rem);
+  }
+}
+
+@utility tw-themes {
+  @apply bg-bglight text-bgdark dark:bg-bgdark dark:text-bglight;
+}
+
+@utility tw-themes-2 {
+  @apply bg-main-deepCerise-500 dark:bg-main-summerSky-500;
+}
+
+@utility tw-themes-3 {
+  @apply bg-main-summerSky-100 dark:bg-gray-900;
+}
+
+@utility tw-themes-4 {
+  @apply bg-main-aliceBlue-500/70 dark:bg-gray-950;
+}
+
+@utility tw-border-themes {
+  @apply border-bgdark/40 dark:border-bglight/20;
+}
+
+@utility tw-border-themes-2 {
+  @apply border-main-deepCerise-350 dark:border-main-summerSky-400;
+}
+
+@utility tw-shadow {
+  @apply shadow-main-deepCerise-400/40 shadow-[0px_0px_10px_3px] dark:shadow-cyan-600/50;
+}
+
+@utility tw-text-blur {
+  @apply text-bgdark/70 dark:text-bglight/70;
+}
+
+@utility tw-text-color {
+  @apply text-bgdark dark:text-bglight;
+}
+
+@utility tw-text-color-2 {
+  @apply font-bold text-[#7a1785] dark:text-yellow-500;
+}
+
+@utility tw-text-color-3 {
+  @apply text-[#8c2445] dark:text-[#82b0da];
+}
+
+@utility tw-text-hover {
+  @apply hover:text-bglight dark:hover:text-bgdark transition duration-300;
+}
+
+@utility tw-carouselBtn {
+  @apply tw-flex-1 hover:border-semantic-springGreen imac:px-4 imac:py-3 gap-2 rounded-full px-3 py-2 font-mono text-sm transition duration-300 hover:bg-linear-to-r;
+}
+
+/*NOTE: Authentication */
+.authlight {
+  background: linear-gradient(
+    234deg,
+    rgba(162, 184, 189, 1) 0%,
+    rgba(142, 195, 221, 1) 50%,
+    rgba(89, 107, 148, 1) 100%
+  );
+}
+
+.authdark {
+  background: radial-gradient(
+    circle,
+    rgba(75, 50, 118, 1) 0%,
+    rgba(31, 17, 68, 1) 50%,
+    rgba(6, 10, 19, 1) 100%
+  );
+}
+
+/*NOTE: Slider */
+.dark .tw-black-backdrop {
+  background: linear-gradient(to left, transparent, rgba(3, 10, 27, 0.75) 65%);
+}
+.tw-light-backdrop {
+  background: linear-gradient(
+    to left,
+    transparent,
+    rgba(235, 250, 255, 0.5) 65%
+  );
 }

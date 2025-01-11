@@ -1,14 +1,17 @@
+import { JSX } from 'react';
+
 import { Footer, Header, Navbar } from '@/components/organisms';
 
-interface MainTemplateProps {
+const MainTemplate = ({
+  children,
+}: {
   children: React.ReactNode;
-}
-const MainTemplate: React.FC<MainTemplateProps> = ({ children }) => {
+}): JSX.Element => {
   return (
     <>
       <Header />
       <Navbar />
-      <main>{children}</main>
+      <main className="container min-h-screen p-1 select-none">{children}</main>
       <Footer />
     </>
   );
