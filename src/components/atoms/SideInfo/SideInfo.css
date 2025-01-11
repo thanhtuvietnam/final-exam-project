@@ -1,0 +1,25 @@
+.dark .cardInfo-current {
+  background-image: linear-gradient(
+    to right,
+    #25aae1,
+    #024fd6,
+    #04befe,
+    #3f86ed
+  );
+  background-size: 300% 100%;
+
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+
+.cardInfo-current {
+  background-image: linear-gradient(
+    to right,
+    #5c1129,
+    #d4114f,
+    #ff085a,
+    #4a1929
+  );
+  background-size: 300% 100%;
+
+  box-shadow: 0 4px 15px 0 rgba(255, 8, 90, 0.75);
+}

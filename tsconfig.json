@@ -1,41 +1,49 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "removeComments": true,
-    "preserveConstEnums": true,
-    "strict": true,
-    "alwaysStrict": true,
-    "strictNullChecks": true,
-    "noUncheckedIndexedAccess": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "allowUnreachableCode": false,
-    "noFallthroughCasesInSwitch": true,
-    "target": "es2017",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "allowJs": true,
-    "checkJs": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "incremental": true,
-    "noEmit": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "typeRoots": ["./types", "./node_modules/@types"],
+    "baseUrl": ".", // Cơ sở cho các alias trong "paths"
+    "lib": ["dom", "dom.iterable", "esnext"], // Thư viện được bao gồm trong quá trình biên dịch
+    "module": "esnext", // Hệ thống module sử dụng
+    "moduleResolution": "node", // Cách TypeScript phân giải module tương tự như Node.js
+    "resolveJsonModule": true, // Cho phép import các tệp JSON như module
+    "removeComments": true, // Loại bỏ các comment trong mã đầu ra
+    "preserveConstEnums": true, // Giữ lại định nghĩa const enum trong output
+    "strict": true, // Bật tất cả các kiểm tra nghiêm ngặt
+    "alwaysStrict": true, // Tự động bật chế độ "strict" của JavaScript
+    "strictNullChecks": true, // Yêu cầu rằng các giá trị có thể là `null` hoặc `undefined` phải được khai báo rõ ràng
+    "noUncheckedIndexedAccess": true, // Cảnh báo khi truy cập các chỉ mục mà không kiểm tra
+    "noImplicitAny": true, // Ngăn chặn việc sử dụng kiểu `any` ngầm định
+    "noImplicitReturns": true, // Cảnh báo nếu một hàm không trả về giá trị trong tất cả các nhánh
+    "noImplicitThis": true, // Cảnh báo khi `this` có kiểu `any` trong các hàm
+    "noUnusedLocals": true, // Cảnh báo về các biến cục bộ không được sử dụng
+    "noUnusedParameters": true, // Cảnh báo về các tham số không được sử dụng trong hàm
+    "noPropertyAccessFromIndexSignature": true, // Ngăn chặn truy cập thuộc tính từ ký hiệu chỉ mục
+    "exactOptionalPropertyTypes": true, // Yêu cầu kiểu chính xác cho các thuộc tính tùy chọn
+    "noImplicitOverride": true, // Yêu cầu sử dụng từ khóa 'override' khi ghi đè phương thức trong lớp kế thừa
+    "noFallthroughCasesInSwitch": true, // Ngăn chặn việc bỏ qua các case trong switch mà không có break
+    "target": "es2017", // Phiên bản ECMAScript mục tiêu cho mã đầu ra
+    "esModuleInterop": true, // Cấu hình cải thiện tương thích với các module CommonJS
+    "allowSyntheticDefaultImports": true, // Cho phép import mặc định cho các module không có export mặc định
+    "allowJs": true, // Cho phép các tệp JavaScript được bao gồm trong quá trình biên dịch
+    "checkJs": true, // Bật kiểm tra type cho các tệp JavaScript
+    "skipLibCheck": true, // Bỏ qua kiểm tra type trong các tệp định nghĩa thư viện
+    "forceConsistentCasingInFileNames": true, // Bắt buộc sử dụng viết hoa thống nhất trong tên tệp
+    "incremental": true, // Bật biên dịch tăng tiến để tối ưu hóa tốc độ biên dịch
+    "noEmit": true, // Không xuất mã JavaScript sau khi biên dịch
+    "isolatedModules": true, // Đảm bảo rằng mỗi tệp được biên dịch như một module riêng biệt
+    "jsx": "preserve", // Giữ nguyên cú pháp JSX trong output
+    "typeRoots": ["./types", "./node_modules/@types"], // Thư mục chứa các định nghĩa type
     "paths": {
+      "@/public/*": ["./public/*"],
+      "@/api/*": ["./src/api/*"],
+      "@/app/*": ["./src/app/*"],
+      "@/auth/*": ["./src/app/(auth)/*"],
+      "@/main/*": ["./src/app/(main)/*"],
       "@/components/*": ["./src/components/*"],
-      "@/pages/*": ["./src/pages/*"],
+      "@/fonts/*": ["./src/fonts/*"],
       "@/lib/*": ["./src/lib/*"],
-      "@/hooks/*": ["./src/hooks/*"],
       "@/styles/*": ["./src/styles/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/hooks/*": ["./src/hooks/*"],
       "@/mocks/*": ["./__mocks__/*"],
       "@/tests/*": ["./.jest/*"]
     },
@@ -45,6 +53,28 @@
       }
     ]
   },
-  "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next-env.d.ts", "src/types/**/*.d.ts", "nextBuild/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    // "./next.config.mjs",
+    "**/*.ts", // Bao gồm tất cả các tệp TypeScript
+    "**/*.tsx", // Bao gồm tất cả các tệp TypeScript với JSX
+    ".next/types/**/*.ts", // Bao gồm các định nghĩa type trong thư mục .next/types
+    "next-env.d.ts", // Bao gồm tệp định nghĩa môi trường Next.js
+    "src/types/*.d.ts", // Bao gồm các tệp định nghĩa type trong src/types
+    // "nextBuild/types/**/*.ts", // Bao gồm các định nghĩa type trong thư mục nextBuild/types
+    // ".storybook/**/*.ts",
+    // ".storybook/**/*.tsx",
+    "postcss.config.mjs"
+    // "jest.config.js",
+    // "jest.setup.js",
+    // "tailwind.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    ".next",
+    "public",
+    "eslint.config.mjs",
+    "**/*.stories.tsx",
+    "**/*.test.tsx",
+    "(categories)/quoc-gia/[slug]/page.txt" // "eslint.config.mjs"
+  ]
 }
