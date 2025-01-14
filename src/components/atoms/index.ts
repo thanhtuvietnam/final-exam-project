@@ -3,6 +3,8 @@ export { default as Card } from './Card/Card';
 export { default as Star } from './Star/Star';
 export { default as Bridge } from './Bridge/Bridge';
 export { default as Cursor } from './Cursor/Cursor';
+/* PLOP_INJECT_EXPORT */
+export { default as Scroll } from './Scroll/Scroll';
 export { default as LogoImg } from './LogoImg/LogoImg';
 export { default as Avatar } from './User/Avatar/Avatar';
 export { default as SideInfo } from './SideInfo/SideInfo';
@@ -19,7 +21,6 @@ export { default as SectionCards } from './SectionCards/SectionCards';
 export { default as SectionTitle } from './SectionTitle/SectionTitle';
 export { default as SubmenuLists } from './SubmenuLists/SubmenuLists';
 export { default as TrendingCard } from './TrendingCard/TrendingCard';
-/* PLOP_INJECT_EXPORT */
 export { default as ActiveLink } from './Button/ActiveLink/ActiveLink';
 export { default as AlgoliaBtn } from './Button/AlgoliaBtn/AlgoliaBtn';
 export { default as SidebarBtn } from './Button/SidebarBtn/SidebarBtn';

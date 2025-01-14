@@ -1,3 +1,5 @@
+import { JSX } from 'react';
+
 import {
   FilmBox,
   InfoTable,
@@ -5,7 +7,7 @@ import {
   FilmBoxContent,
 } from '@/components/molecules';
 
-const FilmWatchSection: React.FC = () => {
+const FilmWatchSection = ({ slug }: { slug: string }): JSX.Element => {
   return (
     <>
       <FilmBox />

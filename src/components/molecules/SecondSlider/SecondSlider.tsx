@@ -6,6 +6,7 @@ import { JSX, useState, useEffect } from 'react';
 
 // import { useTheme } from 'next-themes';
 import { Item } from '@/types/apiResponse';
+import { logger } from '@/lib/utils/misc/logger';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { useGetMovieLists } from '@/api/endpoints/customhook';
@@ -69,4 +70,9 @@ const SecondSlider = (): JSX.Element => {
   );
 };
 
+logger.info({
+  msg: 'SecondSlider Render',
+  fileName: 'SecondSlider.tsx',
+  action: 'Component Render',
+});
 export default SecondSlider;

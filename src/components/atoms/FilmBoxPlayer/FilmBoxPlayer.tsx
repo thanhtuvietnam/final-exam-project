@@ -1,8 +1,8 @@
-const FilmBoxPlayer: React.FC = () => {
+const FilmBoxPlayer = (): JSX.Element => {
   return (
     <>
       <video
-        src="/videos/authVid.mp4"
+        src="/videos/outputvideo.mp4"
         className="rounded-xl"
         controls
         preload="auto"

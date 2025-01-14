@@ -1,11 +1,11 @@
 import type { NextConfig } from 'next';
 
 const nextConfig = {
-  devIndicators: {
-    appIsrStatus: false, // defaults to true
-    buildActivity: true, // defaults to true
-    buildActivityPosition: 'bottom-right',
-  },
+  // devIndicators: {
+  //   appIsrStatus: false, // defaults to true
+  //   buildActivity: true, // defaults to true
+  //   buildActivityPosition: 'bottom-right',
+  // },
 
   eslint: {
     ignoreDuringBuilds: true,
@@ -38,15 +38,16 @@ const nextConfig = {
     ],
   },
 
-  logging: {
-    fetches: {
-      fullUrl: true,
-      hmrRefreshes: true,
-    },
-  },
+  logging: false,
+  // logging: {
+  //   fetches: {
+  //     fullUrl: true,
+  //     hmrRefreshes: true,
+  //   },
+  // },
   poweredByHeader: false,
   reactStrictMode: true,
-  serverExternalPackages: [],
+  serverExternalPackages: ['pino', 'pino-pretty'],
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if

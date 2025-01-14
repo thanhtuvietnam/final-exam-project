@@ -15,6 +15,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { cn } from '@/lib/utils';
 import { Item } from '@/types/apiResponse';
+import { logger } from '@/lib/utils/misc/logger';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SliderTab } from '@/components/atoms/SliderTab';
 import { SliderSkeleton } from '@/components/atoms/Skeleton';
@@ -89,5 +90,15 @@ const Slider = (): JSX.Element => {
     </>
   );
 };
+
+logger.info({
+  msg: 'Resolving Slider',
+  fileName: 'Slider.tsx',
+  action: 'Slider Render',
+  details: {
+    fetchData: 'if cache is empty',
+    useSwiper: ['Swiper', 'SwiperSlide'],
+  },
+});
 
 export default Slider;

@@ -10,7 +10,7 @@ import {
   keepPreviousData,
 } from '@tanstack/react-query';
 
-import { getMovieLists } from './fetchData';
+import { getMovieLists, getMovieDetails } from './fetchData';
 
 // hook
 export const useGetMovieLists = (
@@ -78,4 +78,12 @@ export const useGetMultiMovieLists = (): {
   });
 
   return queries;
+};
+export const useGetMovieDetail = (slug: string) => {
+  const queryDetail = useQuery({
+    queryKey: ['phim', slug],
+    queryFn: () => getMovieDetails(slug),
+    select: (data) => data?.data,
+  });
+  return queryDetail;
 };

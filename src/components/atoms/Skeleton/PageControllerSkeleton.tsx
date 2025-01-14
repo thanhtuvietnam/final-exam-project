@@ -12,7 +12,7 @@ const SkeletonItem: React.FC<SkeletonItemProps> = ({ height, width }) => (
   ></div>
 );
 
-const PageControllerSkeleton: React.FC = () => {
+const PageControllerSkeleton = (): JSX.Element => {
   const firstRowItems = ['16', '20', '12', '12', '12', '14', '16', '16'];
   const secondRowItems = ['32', '24'];
 

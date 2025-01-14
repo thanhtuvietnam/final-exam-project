@@ -3,7 +3,7 @@
 // import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
-const BackgroundVid: React.FC = () => {
+const BackgroundVid = (): JSX.Element => {
   // const pathName = usePathname();
   const [isClient, setIsClient] = useState<boolean>(false);
 

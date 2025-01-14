@@ -1,4 +1,4 @@
-const Filter: React.FC = () => {
+const Filter = (): JSX.Element => {
   return <div className="">Filter</div>;
 };
 

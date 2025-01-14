@@ -6,7 +6,7 @@ import {
   TrendingSection,
 } from '@/components/molecules';
 
-const InfoFilmTemplate: React.FC = () => {
+const InfoFilmTemplate = (): JSX.Element => {
   return (
     <>
       <Filter />

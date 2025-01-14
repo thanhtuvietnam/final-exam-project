@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { motion } from 'motion/react';
 import { ProfileItems } from '@/lib/declarations/constant';
 
-const UserSetting: React.FC = () => {
+const UserSetting = (): JSX.Element => {
   return (
     <motion.div
       transition={{

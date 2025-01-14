@@ -1,11 +1,11 @@
 'use client';
-import React from 'react';
+import React, { JSX } from 'react';
 
 import { useTheme } from 'next-themes';
 // import { useTheme } from '@/components/providers/ThemeProvider';
 import { icons } from '@/lib/declarations/icons';
 
-const ThemeToggleButton: React.FC = () => {
+const ThemeToggleButton = (): JSX.Element => {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
@@ -13,7 +13,7 @@ const ThemeToggleButton: React.FC = () => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted) return <div />;
 
   return (
     <>

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { socialLinks } from '@/lib/declarations/constant';
 
-const SocialContact: React.FC = () => {
+const SocialContact = (): JSX.Element => {
   return (
     <>
       <div className="tw-flex-1 tw-border-themes justify-center gap-3 border-t p-4 md:hidden">

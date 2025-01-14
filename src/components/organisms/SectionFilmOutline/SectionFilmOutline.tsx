@@ -1,11 +1,12 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 
+import { logger } from '@/lib/utils/misc/logger';
 import { useGetMultiMovieLists } from '@/api/endpoints/customhook';
 import { FilmSections, TrendingSection } from '@/components/molecules';
 import { SectionFilmOutlineSkeletonSkeleton } from '@/components/atoms/Skeleton';
 
-const SectionFilmOutline: React.FC = () => {
+const SectionFilmOutline = (): JSX.Element => {
   const [loading, setLoading] = useState(false);
 
   const { data, status } = useGetMultiMovieLists();
@@ -27,7 +28,7 @@ const SectionFilmOutline: React.FC = () => {
       <ul className="w-full grow space-y-4 lg:w-2/3">
         {data &&
           data?.map((item, index) => (
-            <li key={index} className="list-none">
+            <li key={index} className="">
               <FilmSections
                 sectionData={item}
                 cardSlice={2}
@@ -41,4 +42,9 @@ const SectionFilmOutline: React.FC = () => {
   );
 };
 
+logger.info({
+  msg: 'SectionFilmOutline Render',
+  fileName: 'SectionFilmOutline.tsx',
+  action: 'Component Render',
+});
 export default SectionFilmOutline;

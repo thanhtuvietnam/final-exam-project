@@ -4,7 +4,7 @@ import { icons } from '@/lib/declarations/icons';
 
 import { SkeletonIconImage } from './CommonSkeleton';
 
-const TrendingCardSkeleton: React.FC = () => {
+const TrendingCardSkeleton = (): JSX.Element => {
   return (
     <div
       className={cn(

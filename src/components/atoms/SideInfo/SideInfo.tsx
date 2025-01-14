@@ -8,6 +8,8 @@ import { icons } from '@/lib/declarations/icons';
 import { SideInfoProps } from '@/types/commonTypes';
 
 const SideInfo = ({
+  title,
+  originalName,
   actor,
   category,
   country,
@@ -16,10 +18,8 @@ const SideInfo = ({
   imdbScore,
   lang,
   newestEpisode,
-  originalName,
   qua,
   time,
-  title,
   view,
   year,
 }: SideInfoProps): JSX.Element => {
@@ -67,7 +67,7 @@ const SideInfo = ({
       </p>
 
       <p>
-        Quốc gia: <span data-color>{country?.join(', ')}</span>
+        Quốc gia: <span data-color>{country}</span>
       </p>
 
       <p data-css className="font-bold">
@@ -86,7 +86,7 @@ const SideInfo = ({
       </p>
 
       <p>
-        Thể loại: <span data-color>{category?.join(', ')}</span>
+        Thể loại: <span data-color>{category}</span>
       </p>
 
       <p>

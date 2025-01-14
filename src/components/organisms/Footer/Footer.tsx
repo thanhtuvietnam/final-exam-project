@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import './Footer.css';
-const Footer: React.FC = () => {
+const Footer = (): JSX.Element => {
   return (
     <footer className="footer tw-border-themes container border-t">
       <div className="footer-container">
