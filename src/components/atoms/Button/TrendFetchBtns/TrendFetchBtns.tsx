@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 
 const buttonLists = ['Ngày', 'Tuần', 'Tháng'];
 
-const TrendFetchBtns: React.FC = () => {
+const TrendFetchBtns = (): JSX.Element => {
   const [activeBtn, setActiveBtn] = useState<number>(0);
 
   return (

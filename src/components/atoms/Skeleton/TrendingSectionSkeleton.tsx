@@ -6,7 +6,7 @@ import React from 'react';
 import { SectionTitleSkeleton } from './CommonSkeleton';
 import TrendingCardSkeleton from './TrendingCardSkeleton';
 
-const TrendingSectionSkeleton: React.FC = () => {
+const TrendingSectionSkeleton = (): JSX.Element => {
   return (
     <section
       aria-labelledby="trending-section-skeleton"

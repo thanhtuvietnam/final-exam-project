@@ -5,7 +5,7 @@ import { useToggle, useClickAway } from 'react-use';
 import { cn } from '@/lib/utils';
 import { Avatar, LoginBtn } from '@/components/atoms';
 
-const UserLogin: React.FC = () => {
+const UserLogin = (): JSX.Element => {
   // const login = true;
   const login = false;
   const ref = useRef<HTMLDivElement | null>(null);

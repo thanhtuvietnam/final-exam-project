@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 import styles from '@/auth/auth.module.css';
 import { icons } from '@/lib/declarations/icons';
 
-const SignupPage: React.FC = () => {
+const SignupPage = (): JSX.Element => {
   return (
     <motion.form
       transition={{

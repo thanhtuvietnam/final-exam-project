@@ -1,14 +1,8 @@
-@import 'tailwindcss' source('../../src/');
-/* @import 'tailwindcss'; */
+/* @import 'tailwindcss' source('../../src/'); */
+@import 'tailwindcss';
 @variant dark (&:where(.dark, .dark *));
-/* @plugin '@tailwindcss/typography'; */
 
-@layer base {
-  ul,
-  ol {
-    @apply m-0 list-none p-0;
-  }
-}
+/* @plugin '@tailwindcss/typography'; */
 
 @theme {
   /* NOTE: reset font */

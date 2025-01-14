@@ -5,7 +5,7 @@ import {
 } from '@/components/atoms/Skeleton';
 import '@/styles/CardSkeleton.css';
 
-export default function Loading() {
+export default function FilmLoading() {
   return (
     <div className="flex w-full flex-col space-y-5 lg:flex-row lg:space-y-0 lg:space-x-3">
       <div className="w-full grow space-y-4 lg:w-2/3">

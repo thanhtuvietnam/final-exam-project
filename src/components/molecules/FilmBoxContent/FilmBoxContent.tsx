@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils';
 import { ChevronDown } from '@/components/atoms';
 
-const FilmBoxContent: React.FC = () => {
+const FilmBoxContent = (): JSX.Element => {
   return (
     <section
       aria-labelledby="FilmBoxContent"

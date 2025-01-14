@@ -1,6 +1,6 @@
 import { FilmBoxPlayer } from '@/components/atoms';
 
-const FilmBox: React.FC = () => {
+const FilmBox = (): JSX.Element => {
   return (
     <div className="filmBox">
       <FilmBoxPlayer />

@@ -1,13 +1,22 @@
+'use client';
 import { JSX } from 'react';
 
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { LogoImg, TextEffect } from '@/components/atoms';
 
+// import dynamic from 'next/dynamic';
+//
+// const LogoPicture = dynamic(
+//   () => import('@/components/atoms/LogoImg/LogoImg'),
+//   { ssr: false },
+// );
+
 const Logo = (): JSX.Element => {
   return (
     <Link href="/" className="tw-flex relative cursor-pointer gap-1">
       <LogoImg width={40} height={30} />
+      {/* <LogoPicture width={40} height={30} /> */}
       <TextEffect
         className={cn(
           'h-full truncate font-bold capitalize select-none',

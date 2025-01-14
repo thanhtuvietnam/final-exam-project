@@ -1,3 +1,10 @@
+'use client';
+import { JSX, useState } from 'react';
+
+import dynamic from 'next/dynamic';
+import { Category } from '@/types/apiMovieDetails';
+import { IMG_URL } from '@/lib/declarations/constant';
+import { useGetMovieDetail } from '@/api/endpoints/customhook';
 import { SideInfo, BackgroundGradient } from '@/components/atoms';
 import {
   CardInfo,
@@ -6,35 +13,61 @@ import {
   InfoEpisodes,
 } from '@/components/molecules';
 
-const BlockInfoSection: React.FC = () => {
+const BlockInfoSection = ({ slug }: { slug: string }): JSX.Element => {
+  const nah = 'đang cập nhật...';
+  const [expandInfoEpisodes, setExpandInfoEpisodes] = useState<boolean>(false);
+
+  const { data, status } = useGetMovieDetail(slug);
+  const item = data?.item;
+  const actors = item?.actor.map((actor) => actor).join(', ') ?? nah;
+
+  const category =
+    item?.category.map((category: Category) => category?.name).join(', ') ??
+    nah;
+  const country =
+    item?.country.map((country: Category) => country?.name).join(', ') ?? nah;
+
+  // if (status === 'pending') return <div>BlockInfo Loading...</div>;
+  const handleExpandInfoEpisodes = (): void =>
+    setExpandInfoEpisodes(!expandInfoEpisodes);
+
   return (
     <>
       <div className="flex w-full">
         <div className="w-1/3">
           <BackgroundGradient>
-            <CardInfo />
+            <CardInfo
+              altName={item?.name || 'default'}
+              handleExpandInfoEpisodes={handleExpandInfoEpisodes}
+              slug={slug}
+              thumbUrl={`${IMG_URL}/${item?.thumb_url}`}
+            />
           </BackgroundGradient>
         </div>
         <SideInfo
-          actor={'tuluu'}
+          /* eslint-disable */
+          title={item?.name ?? nah}
+          originalName={item?.origin_name ?? nah}
+          year={item?.year ?? 2021}
+          time={item?.time ?? nah}
           imdbScore={9.5}
-          country={['USA']}
-          director={'tuluu'}
-          newestEpisode={'1'}
-          originalName={'tuluu'}
-          episodeCurrent={'Hoan tat (1/1)'}
-          category={['Action', 'Adventure']}
-          qua={'HD'}
-          view={100}
-          lang={'vi'}
-          year={2021}
-          time={'1h 30m'}
-          title={'tuluu'}
+          episodeCurrent={item?.episode_current ?? nah}
+          newestEpisode={nah}
+          country={country}
+          lang={item?.lang ?? nah}
+          qua={item?.quality ?? 'HD'}
+          director={(item?.director[0] || nah) ?? 'tuluu'}
+          actor={actors || nah}
+          category={category}
+          view={item?.view ?? 1000}
         />
       </div>
-      <InfoEpisodes />
-      <InfoContent />
-      <InfoTable />
+      {expandInfoEpisodes && <InfoEpisodes episodes={item?.episodes ?? []} />}
+      <InfoContent content={item?.content ?? []} />
+
+      <div className="h-60 overflow-scroll">
+        <InfoTable item={item} />
+      </div>
     </>
   );
 };
