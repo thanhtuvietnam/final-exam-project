@@ -1,6 +1,6 @@
 import { getQueryClient } from '@/api/get-query-client';
 import { BlockInfoSection } from '@/components/organisms';
-import { getMovieDetails } from '@/api/endpoints/fetchData';
+// import { getMovieDetails } from '@/api/endpoints/fetchData';
 import { detailMovieOptions } from '@/api/endpoints/apimovieLists';
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 

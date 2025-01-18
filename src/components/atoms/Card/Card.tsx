@@ -1,4 +1,5 @@
-import { FC, JSX, memo, useMemo, useCallback } from 'react';
+'use client';
+import { JSX, memo, useMemo, useCallback } from 'react';
 
 import './card.css';
 
@@ -18,15 +19,17 @@ interface InfoItemProps {
   label: string;
   value?: string | number;
 }
-const InfoItem: FC<InfoItemProps> = memo(({ icon, label, value }) => (
-  <div className="tw-flex-1 gap-1">
-    <span className="tw-flex-1 gap-1 text-[#ffeb3b]">
-      {icon}
-      {label}
-    </span>
-    {value && <span>{value}</span>}
-  </div>
-));
+const InfoItem = memo(
+  ({ icon, label, value }: InfoItemProps): JSX.Element => (
+    <div className="tw-flex-1 gap-1">
+      <span className="tw-flex-1 gap-1 text-[#ffeb3b]">
+        {icon}
+        {label}
+      </span>
+      {value && <span>{value}</span>}
+    </div>
+  ),
+);
 
 InfoItem.displayName = 'InfoItem';
 
@@ -67,14 +70,14 @@ const Card = memo(
 
     return (
       <Link href={`/film-info/${movieData?.slug}`}>
-        <div className="card group/card">
+        <div className="card group/card overflow-hidden">
           <Bridge className="z-[2] size-full transition duration-500 group-hover/card:invisible dark:bg-black/30" />
 
           <span className="cardItemQualang group-hover/card:invisible">
             {movieData?.quality} + {movieData?.lang}
           </span>
 
-          <div className="poster">
+          <div className="poster over">
             <Image
               fill
               // width={320}
@@ -108,7 +111,7 @@ const Card = memo(
               {movieData?.name}
             </h3>
 
-            <h4 className="">{movieData?.origin_name}</h4>
+            <h4>{movieData?.origin_name}</h4>
 
             <div className="info">
               <InfoItem

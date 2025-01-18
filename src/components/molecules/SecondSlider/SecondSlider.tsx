@@ -44,17 +44,16 @@ const SecondSlider = (): JSX.Element => {
   if (status === 'error') return <p>Error</p>;
 
   return (
-    <section aria-labelledby="second-slider" className="my-5">
+    <section aria-labelledby="second-slider" className="my-5 rounded-b-3xl">
       <SectionTitle aria-labelledby="second-slider" title={'PHIM MỚI'} />
-
       <Swiper
         slidesPerView={6}
-        grabCursor={true}
+        // grabCursor={true}
         navigation={true}
-        breakpoints={swiperBreakpoints}
+        // breakpoints={swiperBreakpoints}
         modules={[Autoplay, Navigation]}
         autoplay={{
-          delay: 3000,
+          delay: 5000,
           pauseOnMouseEnter: true,
         }}
       >

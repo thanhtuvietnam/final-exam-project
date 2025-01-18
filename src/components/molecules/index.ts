@@ -15,6 +15,7 @@ export { default as SecondSlider } from './SecondSlider/SecondSlider';
 export { default as SliderContent } from './SliderContent/SliderContent';
 export { default as FilmBoxContent } from './FilmBoxContent/FilmBoxContent';
 /* PLOP_INJECT_EXPORT */
+export { default as VidStackPlayer } from './VidStackPlayer/VidStackPlayer';
 export { default as PageController } from './PageController/PageController';
 export { default as RecommendMovies } from './RecommendMovies/RecommendMovies';
 export { default as TrendingSection } from './TrendingSection/TrendingSection';

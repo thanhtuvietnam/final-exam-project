@@ -8,6 +8,12 @@ import { icons } from '@/lib/declarations/icons';
 import { SectionTitle } from '@/components/atoms';
 import useSplitContents from '@/hooks/useSplitContent';
 
+const slideInFromAbove = {
+  hidden: { height: 'auto', opacity: 0, y: -10 },
+  visible: { height: 'auto', opacity: 1, y: 0 },
+  exit: { height: 0, opacity: 0, y: -21 },
+};
+
 const InfoContent = ({ content }: Item): JSX.Element => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -25,12 +31,15 @@ const InfoContent = ({ content }: Item): JSX.Element => {
 
       {isExpanded ? (
         <motion.p
-          exit={{ height: 0, opacity: 0, y: -20 }}
-          animate={{ height: 'auto', opacity: 1, y: 0 }}
-          initial={{ height: 'auto', opacity: 0, y: -10 }}
+          variants={slideInFromAbove}
+          initial="hidden"
+          animate="visible"
+          // exit={{ height: 0, opacity: 0, y: -20 }}
+          // animate={{ height: 'auto', opacity: 1, y: 0 }}
+          // initial={{ height: 'auto', opacity: 0, y: -10 }}
           transition={{
-            duration: 0.3,
-            ease: 'easeInOut',
+            duration: 0.4,
+            // ease: 'easeInOut',
           }}
           className="mt-2 origin-top"
         >

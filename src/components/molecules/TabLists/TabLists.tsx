@@ -44,7 +44,7 @@ const TabLists = ({ className }: Base): JSX.Element => {
       clickEffectVar = 'QUỐC GIA';
       break;
     default:
-      clickEffectVar = 'TRANG CHỦ';
+      // clickEffectVar = 'TRANG CHỦ';
       break;
   }
 

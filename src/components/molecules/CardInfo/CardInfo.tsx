@@ -13,16 +13,18 @@ import {
 } from '@/components/atoms';
 
 const CardInfo = ({
-  slug,
+  // slug,
   altName,
   thumbUrl,
   handleExpandInfoEpisodes,
+  handlePlayButton,
 }: {
   slug: string;
   altName: string;
   thumbUrl: string;
   // handleExpandInfoEpisodes: () => React.Dispatch<React.SetStateAction<boolean>>;
   handleExpandInfoEpisodes: () => void;
+  handlePlayButton: () => void;
 }): JSX.Element => {
   return (
     <>
@@ -50,9 +52,10 @@ const CardInfo = ({
           </AlgoliaBtn>
 
           <AlgoliaBtn
-            href={`/xem-phim/${slug}`}
             className={cn('button-two', 'tw-text-color', 'rounded-full px-9')}
+            // href={`/xem-phim/${slug}`}
             color="#ff5000"
+            onClick={handlePlayButton}
           >
             Play
             <icons.FaPlay size={30} />

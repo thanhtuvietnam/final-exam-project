@@ -1,11 +1,11 @@
 import type { NextConfig } from 'next';
 
 const nextConfig = {
-  // devIndicators: {
-  //   appIsrStatus: false, // defaults to true
-  //   buildActivity: true, // defaults to true
-  //   buildActivityPosition: 'bottom-right',
-  // },
+  devIndicators: {
+    appIsrStatus: false, // defaults to true
+    buildActivity: true, // defaults to true
+    buildActivityPosition: 'bottom-right',
+  },
 
   eslint: {
     ignoreDuringBuilds: true,

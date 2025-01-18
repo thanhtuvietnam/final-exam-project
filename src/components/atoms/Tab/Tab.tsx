@@ -1,5 +1,6 @@
 'use client';
 import { JSX, useRef } from 'react';
+import { useLocalStorage } from 'react-use';
 
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
@@ -25,6 +26,10 @@ const Tab = ({
   tabState,
 }: TabProps): JSX.Element => {
   const ref = useRef<HTMLLIElement>(null);
+  const [state, setState, remove] = useLocalStorage<{
+    filmUrl: string;
+    ep: string;
+  }>('re-watch');
 
   const handleMouseEnter = (): void => {
     if (!ref?.current) return;
@@ -52,6 +57,10 @@ const Tab = ({
       ...prev,
       subMenuActiveId: id as string | null,
     }));
+
+    if (state?.filmUrl !== '' || state?.ep !== '') {
+      remove();
+    }
   };
 
   return (

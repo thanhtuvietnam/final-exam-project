@@ -3,7 +3,6 @@ export { default as Card } from './Card/Card';
 export { default as Star } from './Star/Star';
 export { default as Bridge } from './Bridge/Bridge';
 export { default as Cursor } from './Cursor/Cursor';
-/* PLOP_INJECT_EXPORT */
 export { default as Scroll } from './Scroll/Scroll';
 export { default as LogoImg } from './LogoImg/LogoImg';
 export { default as Avatar } from './User/Avatar/Avatar';
@@ -13,6 +12,8 @@ export { default as InputField } from './InputField/InputField';
 export { default as ArrowBtn } from './Button/ArrowBtn/ArrowBtn';
 export { default as BookMark } from './Button/BookMark/BookMark';
 export { default as LoginBtn } from './Button/LoginBtn/LoginBtn';
+/* PLOP_INJECT_EXPORT */
+export { default as EpisodeLink } from './EpisodeLink/EpisodeLink';
 export { default as ChevronDown } from './ChevronDown/ChevronDown';
 export { default as SearchBtn } from './Button/SearchBtn/SearchBtn';
 export { default as SeeAllBtn } from './Button/SeeAllBtn/SeeAllBtn';

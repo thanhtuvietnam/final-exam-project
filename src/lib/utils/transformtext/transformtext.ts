@@ -13,3 +13,10 @@ export const transformText = (text: string): string => {
       .replace(/-+/g, '-'); // Loại bỏ dấu gạch ngang liên tiếp
   }
 };
+
+export const determineLinkType = (url: string): 'm3u8' | 'embed' => {
+  if (url.endsWith('.m3u8')) {
+    return 'm3u8';
+  }
+  return 'embed';
+};

@@ -37,12 +37,7 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning lang="en">
       <Scroll />
-      <body
-        className={cn(
-          'tw-themes antialiased scheme-light dark:scheme-dark',
-          `${montserrat.className}`,
-        )}
-      >
+      <body className={cn('tw-themes antialiased', `${montserrat.className}`)}>
         <ThemeProvider
           disableTransitionOnChange
           enableSystem

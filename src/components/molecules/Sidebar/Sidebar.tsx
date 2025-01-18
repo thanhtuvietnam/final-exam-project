@@ -85,7 +85,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             }}
             className={cn(
               'fixed inset-0 z-40 block bg-black/30 lg:hidden',
-              // 'backdrop-blur-sm',
+              // 'backdrop-blur-xs',
             )}
             onClick={closeSidebar}
           />
