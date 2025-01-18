@@ -1,4 +1,4 @@
-/* tabscrollbar */
+/*NOTE: tabscrollbar */
 .swiper {
   border-radius: 1.5rem;
   box-shadow: rgba(208, 24, 125, 0.75) 0px 2px 10px 2px;
@@ -8,7 +8,7 @@
   border-radius: 1.5rem;
   box-shadow: rgba(34, 142, 229, 0.75) 0px 2px 10px 2px;
 }
-/* scrollbar */
+/*NOTE: scrollbar */
 .dark .swiper-scrollbar-horizontal {
   --swiper-scrollbar-border-radius: 50px;
   --swiper-scrollbar-top: auto;
@@ -21,7 +21,7 @@
   --swiper-scrollbar-size: 5px;
 }
 
-/* light */
+/*NOTE: light */
 .swiper-scrollbar-horizontal {
   --swiper-scrollbar-border-radius: 50px;
   --swiper-scrollbar-bottom: 4px;
@@ -30,7 +30,7 @@
   --swiper-scrollbar-size: 5px;
 }
 
-/* pagination */
+/*NOTE: pagination */
 .swiper-pagination-horizontal,
 .dark .swiper-pagination-horizontal {
   --swiper-pagination-left: auto;
@@ -67,7 +67,7 @@
   );
 }
 
-/* button */
+/*NOTE: button */
 .swiper-button-prev,
 .swiper-button-next,
 .dark .swiper-button-prev,
@@ -104,7 +104,7 @@
   background: #facc15;
 }
 
-/* respnsive */
+/*NOTE: respnsive */
 @media screen and (min-width: 768px) {
   .swiper-button-prev,
   .swiper-button-next,

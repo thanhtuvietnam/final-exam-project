@@ -5,11 +5,7 @@ import { JSX, useState, useEffect } from 'react';
 import './slider.css';
 
 import 'swiper/css';
-import 'swiper/css/effect-cards';
-import 'swiper/css/effect-creative';
 import 'swiper/css/effect-fade';
-import 'swiper/css/effect-flip';
-import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
@@ -50,10 +46,10 @@ const Slider = (): JSX.Element => {
   return (
     <>
       <Swiper
-        // slidesPerView={1}
-        className="group/slider"
+        slidesPerView={1}
+        // slidesPerView={6}
+        // className="group/slider"
         navigation={true}
-        // grabCursor={true}
         pagination={{ type: 'progressbar' }}
         scrollbar={{
           draggable: true,
@@ -61,7 +57,6 @@ const Slider = (): JSX.Element => {
         modules={[EffectFade, Autoplay, Scrollbar, Pagination, Navigation]}
         autoplay={{
           delay: 5000,
-          // disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }}
         effect="fade"

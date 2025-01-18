@@ -90,7 +90,7 @@ const SubmenuLists = ({
           'overflow-hidden',
           'overflow-y-auto',
           'bg-bglight/30 dark:bg-bgdark/30',
-          'absolute top-14 z-50 grid h-[28rem] w-[25rem] grid-cols-3 rounded-2xl border px-1 py-3 text-center shadow-md',
+          'absolute top-14 z-50 grid h-[28rem] w-[25rem] grid-cols-3 rounded-lg border px-1 py-3 text-center shadow-md',
           'border-main-deepCerise-350 shadow-main-deepCerise-500/40 dark:border-main-summerSky-400 dark:shadow-cyan-600/50',
         )}
       >

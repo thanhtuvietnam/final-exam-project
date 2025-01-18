@@ -22,7 +22,6 @@ const SecondSliderSkeleton = (): JSX.Element => {
   return (
     <section aria-labelledby="second-slider" className="my-5">
       <SectionTitleSkeleton />
-
       <Swiper slidesPerView={6} breakpoints={swiperBreakpoints}>
         {skeletonSlides.map((_, index) => (
           <SwiperSlide key={index} className="p-1">
