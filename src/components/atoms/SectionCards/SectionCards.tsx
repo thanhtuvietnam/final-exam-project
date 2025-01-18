@@ -9,14 +9,14 @@ import { BackgroundGradient } from '../Effect/BackgroundGradient';
 const SectionCards = ({
   idx = 0,
   moviedata,
-  theme,
+  // theme,
 }: {
   idx: number;
   moviedata: Item;
-  theme?: string;
+  // theme?: string;
 }): JSX.Element => {
   return (
-    <li className="list-none">
+    <li className="">
       <CardHoverEffect idx={idx}>
         <BackgroundGradient>
           <Card movieData={moviedata} />

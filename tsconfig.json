@@ -63,8 +63,8 @@
     // "nextBuild/types/**/*.ts", // Bao gồm các định nghĩa type trong thư mục nextBuild/types
     // ".storybook/**/*.ts",
     // ".storybook/**/*.tsx",
-    "postcss.config.mjs"
-    // "jest.config.js",
+    "postcss.config.mjs",
+    "src/lib/utils/misc/instrumentation.ts" // "jest.config.js",
     // "jest.setup.js",
     // "tailwind.config.ts"
   ],

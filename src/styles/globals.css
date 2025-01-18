@@ -1,14 +1,8 @@
-@import 'tailwindcss' source('../../src/');
-/* @import 'tailwindcss'; */
+/* @import 'tailwindcss' source('../../src/'); */
+@import 'tailwindcss';
 @variant dark (&:where(.dark, .dark *));
-/* @plugin '@tailwindcss/typography'; */
 
-@layer base {
-  ul,
-  ol {
-    @apply m-0 list-none p-0;
-  }
-}
+/* @plugin '@tailwindcss/typography'; */
 
 @theme {
   /* NOTE: reset font */
@@ -239,4 +233,42 @@
     transparent,
     rgba(235, 250, 255, 0.5) 65%
   );
+}
+/* NOTE: Scrollbar */
+
+/* Light Theme Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffb6c1; /* Light pink */
+  border-radius: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d0187d; /* Pink */
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff1493; /* Deep pink */
+}
+
+/* Dark Theme Scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #add8e6; /* Light Blue */
+  border-radius: 8px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #228ee5; /* Light Sky Blue */
+  border-radius: 5px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #00bfff; /* Deep Sky Blue */
 }

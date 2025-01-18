@@ -16,7 +16,7 @@ const FilmSections: React.FC<FilmSectionsProps> = ({
   showSeeAll = true,
   title,
   cardSlice,
-  theme,
+  // theme,
 }) => {
   const halfItems = sectionData?.items?.slice(
     0,

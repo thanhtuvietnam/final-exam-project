@@ -1,62 +1,51 @@
-import React, { JSX } from 'react';
+import { JSX } from 'react';
 import { FaDownload } from 'react-icons/fa';
 
-interface DownloadOption {
-  downloadLink: string;
+import Link from 'next/link';
+import { ServerDatum } from '@/types/apiMovieDetails';
+
+const InfoTable = ({
+  serverData,
+  quality,
+  lang,
+}: {
+  serverData: ServerDatum;
   quality: string;
-  language: string;
-}
-
-interface InfoTable {
-  data: DownloadOption[];
-}
-const downloadData = [
-  {
-    downloadLink: 'https://example.com/download1',
-    language: 'Tiếng Việt',
-    quality: '1080p',
-  },
-  {
-    downloadLink: 'https://example.com/download2',
-    language: 'English',
-    quality: '720p',
-  },
-  // Thêm các mục khác nếu cần
-];
-
-const InfoTable = ({ data }: DownloadOption): JSX.Element => {
+  lang: string;
+}): JSX.Element => {
   return (
-    <table className="tw-themes-3 min-w-full rounded-lg">
-      <thead>
-        <tr>
-          <th className="tw-border-themes border-b px-4 py-2">
-            Liên Kết Tải Về
-          </th>
-          <th className="tw-border-themes border-b px-4 py-2">Chất Lượng</th>
-          <th className="tw-border-themes border-b px-4 py-2">Ngôn Ngữ</th>
-        </tr>
-      </thead>
-      <tbody className="text-center">
-        {downloadData.map((option, index) => (
-          <tr
-            key={index}
-            // className={cn(index % 2 === 0 ? 'bg-gray-50' : 'bg-white')}
-          >
-            <td className="flex items-center space-x-2 px-4 py-2">
-              <FaDownload />
-              <a
-                href={option.downloadLink}
-                className="text-blue-500 hover:underline"
-              >
-                Tải về
-              </a>
-            </td>
-            <td className="px-4 py-2">{option.quality}</td>
-            <td className="px-4 py-2">{option.language}</td>
+    <div className="tw-themes-3 h-60 overflow-y-scroll rounded-lg scheme-light dark:scheme-dark">
+      <table className="min-w-full">
+        <thead>
+          <tr className="**:tw-border-themes truncate **:border-b **:p-4">
+            <th>Liên Kết Tải Về</th>
+            <th>Chất Lượng</th>
+            <th>Ngôn Ngữ</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody className="h-1 text-center">
+          {serverData?.map((option: ServerDatum, index: number) => (
+            <tr
+              key={`${option?.slug}-${index}`}
+              // className="**:px-4 **:py-1.5"
+            >
+              <td className="grid px-4 py-2">
+                <Link
+                  href={option?.link_m3u8}
+                  className="tw-flex-1 gap-2 text-blue-500 hover:underline"
+                >
+                  <FaDownload />
+                  {option?.filename}
+                </Link>
+              </td>
+              <td>{quality}</td>
+              <td>{lang}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 export default InfoTable;

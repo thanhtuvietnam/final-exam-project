@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
-const TrendingCard: React.FC = () => {
+const TrendingCard = (): JSX.Element => {
   return (
     <div
       className={cn(

@@ -1,11 +1,11 @@
 'use client';
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, { JSX, useRef, useState, useEffect, useCallback } from 'react';
 
 import Form from 'next/form';
 import { cn } from '@/lib/utils';
 import { SearchBtn, InputField } from '@/components/atoms';
 
-const SearchBar: React.FC = () => {
+const SearchBar = (): JSX.Element => {
   const placeholders = [
     "What's the first rule of Fight Club?",
     'Who is Tyler Durden?',
@@ -162,7 +162,7 @@ const SearchBar: React.FC = () => {
         value && 'bg-main-summerSky-100',
         'hidden h-10 max-w-sm md:flex md:w-[19rem] lg:ml-0 lg:w-full',
       )}
-      action="/login"
+      action="/"
     >
       <InputField
         placeholders={placeholders}

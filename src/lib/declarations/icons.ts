@@ -1,9 +1,9 @@
 import { CiStar } from 'react-icons/ci';
 import { GiVote } from 'react-icons/gi';
 import { SlControlPlay } from 'react-icons/sl';
-import { AiOutlinePhone } from 'react-icons/ai';
 import { GrExpand, GrContactInfo } from 'react-icons/gr';
 import { FiFacebook, FiChevronDown } from 'react-icons/fi';
+import { AiOutlinePhone,AiOutlineShrink } from 'react-icons/ai';
 import { GoClock, GoArrowRight, GoChevronDown } from 'react-icons/go';
 import { RiHdLine, RiYoutubeLine, RiTwitterXFill } from 'react-icons/ri';
 import { HiMiniLanguage, HiMiniDevicePhoneMobile } from 'react-icons/hi2';
@@ -57,8 +57,9 @@ import {
 } from 'react-icons/fa';
 
 export const icons = {
-  BiSolidCameraMovie,
+  AiOutlineShrink,
   AiOutlinePhone,
+  BiSolidCameraMovie,
   BiDotsVertical,
   BiFilm,
   BiMoviePlay,

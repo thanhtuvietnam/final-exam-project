@@ -65,10 +65,7 @@ const SidebarContent = ({
   const handleClick = (id: string): void => setClickEffect(id);
 
   return (
-    <nav
-      aria-label="Sidebar Navigation"
-      className="flex-1 overflow-y-auto py-4 font-sans"
-    >
+    <nav aria-label="Sidebar Navigation" className="flex-1 py-4 font-sans">
       <ul className="px-3">
         {tabs.map((tab) => (
           <li key={tab.id} className="tw-text-blur hover:tw-text-color">

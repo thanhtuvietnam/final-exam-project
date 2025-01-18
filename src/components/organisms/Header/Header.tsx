@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import { Logo, SearchBar, UserLogin } from '@/components/molecules';
-const Header: React.FC = () => {
+const Header = (): JSX.Element => {
   return (
     <header
       className={cn(

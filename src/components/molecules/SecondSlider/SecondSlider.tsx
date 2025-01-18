@@ -6,6 +6,7 @@ import { JSX, useState, useEffect } from 'react';
 
 // import { useTheme } from 'next-themes';
 import { Item } from '@/types/apiResponse';
+import { logger } from '@/lib/utils/misc/logger';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import { useGetMovieLists } from '@/api/endpoints/customhook';
@@ -43,17 +44,16 @@ const SecondSlider = (): JSX.Element => {
   if (status === 'error') return <p>Error</p>;
 
   return (
-    <section aria-labelledby="second-slider" className="my-5">
+    <section aria-labelledby="second-slider" className="my-5 rounded-b-3xl">
       <SectionTitle aria-labelledby="second-slider" title={'PHIM MỚI'} />
-
       <Swiper
         slidesPerView={6}
-        grabCursor={true}
+        // grabCursor={true}
         navigation={true}
-        breakpoints={swiperBreakpoints}
+        // breakpoints={swiperBreakpoints}
         modules={[Autoplay, Navigation]}
         autoplay={{
-          delay: 3000,
+          delay: 5000,
           pauseOnMouseEnter: true,
         }}
       >
@@ -69,4 +69,9 @@ const SecondSlider = (): JSX.Element => {
   );
 };
 
+logger.info({
+  msg: 'SecondSlider Render',
+  fileName: 'SecondSlider.tsx',
+  action: 'Component Render',
+});
 export default SecondSlider;

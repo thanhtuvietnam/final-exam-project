@@ -4,7 +4,9 @@
  * Base interface for components with optional className
  */
 export interface Base {
+  children?: ReactNode;
   className?: string;
+  color?: string;
 }
 
 /**

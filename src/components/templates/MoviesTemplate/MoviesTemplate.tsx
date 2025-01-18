@@ -14,7 +14,7 @@ const MoviesTemplate = ({
   param: string;
 }): JSX.Element => {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const { resolvedTheme } = useTheme();
+  // const { resolvedTheme } = useTheme();
   // const [loading, setLoading] = useState<boolean>(false);
 
   const handlePageChange = (page: number): void => {
@@ -41,7 +41,7 @@ const MoviesTemplate = ({
         showSeeAll={false}
         cardSlice={1}
         title={data?.titlePage}
-        theme={resolvedTheme || 'dark'}
+        // theme={resolvedTheme || 'dark'}
       />
       <PageController
         totalPages={totalPages}

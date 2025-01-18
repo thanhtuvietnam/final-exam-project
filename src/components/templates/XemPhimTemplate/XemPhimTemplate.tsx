@@ -6,7 +6,7 @@ import {
   TrendingSection,
 } from '@/components/molecules';
 
-const XemPhimTemplate: React.FC = () => {
+const XemPhimTemplate = (): JSX.Element => {
   return (
     <>
       <Filter />

@@ -1,12 +1,18 @@
 'use client';
 import { useScroll } from 'react-use';
-import React, { useRef, useState } from 'react';
+import React, { JSX, useRef, useState } from 'react';
 
 import { cn } from '@/lib/utils';
 import { Sidebar, TabLists } from '@/components/molecules';
 import { SidebarBtn, ThemeToggleButton } from '@/components/atoms';
+// import dynamic from 'next/dynamic';
+//
+// const ThemeSwich = dynamic(
+//   () => import('@/components/atoms/Button/ThemeToggleButton/ThemeToggleButton'),
+//   { ssr: false },
+// );
 
-const Navbar: React.FC = () => {
+const Navbar = (): JSX.Element => {
   const scrollRef = useRef<HTMLElement>(null!);
   const { y } = useScroll(scrollRef);
 
@@ -43,6 +49,7 @@ const Navbar: React.FC = () => {
       />
       <div aria-label="Right Navbar" className="ml-1 flex gap-2 lg:mr-2">
         <span className="block lg:hidden">navbar right</span>
+        {/* <ThemeSwich /> */}
         <ThemeToggleButton />
       </div>
       <SidebarBtn

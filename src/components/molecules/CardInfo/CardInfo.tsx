@@ -1,5 +1,7 @@
 import './CardInfo.css';
 
+import { JSX } from 'react';
+
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { icons } from '@/lib/declarations/icons';
@@ -10,16 +12,29 @@ import {
   ChevronDown,
 } from '@/components/atoms';
 
-const CardInfo: React.FC = () => {
+const CardInfo = ({
+  // slug,
+  altName,
+  thumbUrl,
+  handleExpandInfoEpisodes,
+  handlePlayButton,
+}: {
+  slug: string;
+  altName: string;
+  thumbUrl: string;
+  // handleExpandInfoEpisodes: () => React.Dispatch<React.SetStateAction<boolean>>;
+  handleExpandInfoEpisodes: () => void;
+  handlePlayButton: () => void;
+}): JSX.Element => {
   return (
     <>
-      <div className="relative">
+      <div className="relative h-[450px]">
         <Image
           width={300}
           height={500}
-          alt="infocardimg"
-          src="/demo/poster.jpg"
-          className="size-full rounded-3xl"
+          src={thumbUrl}
+          alt={`${altName}-thumbImage`}
+          className="size-full overflow-hidden rounded-3xl"
         />
         <div className="tw-flex absolute top-1 w-full px-1.5">
           <BookMark />
@@ -30,13 +45,17 @@ const CardInfo: React.FC = () => {
           <AlgoliaBtn
             className={cn('button-one', 'tw-text-color', 'rounded-full px-5')}
             color="#00a8c5"
+            onClick={handleExpandInfoEpisodes}
           >
             <ChevronDown size={15} tab="Tập Phim" />
             {/* <icons.GoChevronDown /> */}
           </AlgoliaBtn>
+
           <AlgoliaBtn
             className={cn('button-two', 'tw-text-color', 'rounded-full px-9')}
+            // href={`/xem-phim/${slug}`}
             color="#ff5000"
+            onClick={handlePlayButton}
           >
             Play
             <icons.FaPlay size={30} />

@@ -38,15 +38,16 @@ const nextConfig = {
     ],
   },
 
-  logging: {
-    fetches: {
-      fullUrl: true,
-      hmrRefreshes: true,
-    },
-  },
+  logging: false,
+  // logging: {
+  //   fetches: {
+  //     fullUrl: true,
+  //     hmrRefreshes: true,
+  //   },
+  // },
   poweredByHeader: false,
   reactStrictMode: true,
-  serverExternalPackages: [],
+  serverExternalPackages: ['pino', 'pino-pretty'],
   typescript: {
     // !! WARN !!
     // Dangerously allow production builds to successfully complete even if

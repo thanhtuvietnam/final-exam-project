@@ -4,15 +4,17 @@ import { cn } from '@/lib/utils';
 import { icons } from '@/lib/declarations/icons';
 
 interface ChevronDownProps {
-  tab: string;
+  boxfilmRotate?: boolean;
+  tab?: string;
   rotate?: string | null;
   className?: string;
-  size?: number;
+  size?: string | number;
 }
 const ChevronDown = ({
+  boxfilmRotate,
   className,
   rotate,
-  size,
+  size = 24,
   tab,
 }: ChevronDownProps): JSX.Element => {
   return (
@@ -23,6 +25,7 @@ const ChevronDown = ({
           className,
           'transition-tarnsform duration-200',
           rotate === tab ? 'rotate-180 transform' : '',
+          boxfilmRotate ? 'rotate-180 transform' : '',
         )}
         size={size}
       />

@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { JSX, useState } from 'react';
 
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
@@ -11,18 +11,18 @@ interface LogoImgProps {
   height?: number;
 }
 
-const LogoImg: React.FC<LogoImgProps> = ({ width, className, height }) => {
+const LogoImg = ({ width, className, height }: LogoImgProps): JSX.Element => {
   const { resolvedTheme } = useTheme();
   const logo =
     resolvedTheme === 'dark' ? '/logo/Logolight.png' : '/logo/Logodark.png';
 
-  const [mounted, setMounted] = React.useState(false);
+  const [mounted, setMounted] = useState(false);
 
   React.useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted) return <div />;
 
   // const handleClick = (): void => {
   //   // console.log('click');

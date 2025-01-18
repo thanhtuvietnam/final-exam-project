@@ -1,13 +1,12 @@
-'use server';
+// 'use server';
 import { notFound } from 'next/navigation';
-// import { ApiMovieDetails } from '@/types/apiMovieDetails';
 import { ApiResponse } from '@/types/apiResponse';
 import { API_URL } from '@/lib/declarations/constant';
-// import 'server-only';
+import { ApiMovieDetails } from '@/types/apiMovieDetails';
 
 const fetchData = async <T>(url: string): Promise<T> => {
   const response = await fetch(url, {
-    cache: 'force-cache',
+    // cache: 'force-cache',
     // cache: 'no-cache',
   });
 
@@ -37,8 +36,10 @@ export const getMovieLists = async (
   return fetchData<ApiResponse>(url);
 };
 
-// export const getMovieDetails = (slug: string): Promise<ApiMovieDetails> => {
-//   const url = `${API_URL}/phim/${encodeURIComponent(slug)}`;
-//
-//   return fetchData<ApiMovieDetails>(url);
-// };
+export const getMovieDetails = async (
+  slug: string,
+): Promise<ApiMovieDetails> => {
+  const url = `${API_URL}/phim/${slug}`;
+
+  return fetchData<ApiMovieDetails>(url);
+};
