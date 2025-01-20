@@ -13,7 +13,8 @@ const ThemeToggleButton = (): JSX.Element => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return <div />;
+  if (!mounted)
+    return <div className="skeleton h-[35px] w-[35px] rounded-lg" />;
 
   return (
     <>

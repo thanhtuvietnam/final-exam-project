@@ -1,7 +1,12 @@
-export { default as CardSkeleton } from './CardSkeleton';
 export { default as SliderSkeleton } from './SliderSkeleton';
 export { default as SecondSliderSkeleton } from './SecondSliderSkeleton';
 export { default as TrendingCardSkeleton } from './TrendingCardSkeleton';
 export { default as PageControllerSkeleton } from './PageControllerSkeleton';
+export { default as CardSkeleton } from './MovieTemplateSkeleton/CardSkeleton';
 export { default as TrendingSectionSkeleton } from './TrendingSectionSkeleton';
+export { default as FilmBoxSkeleton } from './FilmWatchSkeleton/FilmBoxSkeleton';
+export { default as FilmWatchSkeleton } from './FilmWatchSkeleton/FilmWatchSkeleton';
+export { default as InfoEpisodesSkeleton } from './FilmWatchSkeleton/InfoEpisodesSkeleton';
 export { default as SectionFilmOutlineSkeletonSkeleton } from './SectionFilmOutlineSkeleton';
+export { default as FilmBoxContentSkeleton } from './FilmWatchSkeleton/FilmBoxContentSkeleton';
+export { default as MovieTemplateSkeleton } from './MovieTemplateSkeleton/MovieTemplateSkeleton';

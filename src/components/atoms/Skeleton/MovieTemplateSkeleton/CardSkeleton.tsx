@@ -2,7 +2,7 @@ import React, { JSX } from 'react';
 
 import '@/styles/CardSkeleton.css';
 
-import { SkeletonIconImage } from './CommonSkeleton';
+import { SkeletonIconImage } from '../CommonSkeleton';
 
 function CardSkeleton(): JSX.Element {
   return (

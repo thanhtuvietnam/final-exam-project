@@ -16,16 +16,16 @@ const Footer = (): JSX.Element => {
           <h4>Quick Links</h4>
           <ul>
             <li>
-              <Link href="/home">Home</Link>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href="/movies">Movies</Link>
+              <Link href="/">Movies</Link>
             </li>
             <li>
-              <Link href="/tv-shows">TV Shows</Link>
+              <Link href="/">TV Shows</Link>
             </li>
             <li>
-              <Link href="/contact">Contact Us</Link>
+              <Link href="/">Contact Us</Link>
             </li>
           </ul>
         </div>

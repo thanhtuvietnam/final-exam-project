@@ -1,4 +1,4 @@
-import { JSX, memo } from 'react';
+import { JSX } from 'react';
 
 import { cn } from '@/lib/utils';
 import { logger } from '@/lib/utils/misc/logger';
@@ -7,10 +7,6 @@ import { getQueryClient } from '@/api/get-query-client';
 import { categoryListOptions } from '@/api/endpoints/apimovieLists';
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import { Carousel, SectionFilmOutline } from '@/components/organisms';
-
-// const MemoizedCarousel = memo(Carousel);
-// const MemoizedSecondSlider = memo(SecondSlider);
-// const MemoizedSectionFilmOutline = memo(SectionFilmOutline);
 
 // export const revalidate = 60;
 logger.info({
@@ -35,7 +31,7 @@ export default async function Home(): Promise<JSX.Element> {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <div className={cn('group relative rounded-3xl shadow-lg select-none')}>
+      <div className={cn('group relative rounded-3xl shadow-lg')}>
         <Carousel />
       </div>
       <SecondSlider />

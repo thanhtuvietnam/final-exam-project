@@ -1,8 +1,8 @@
 'use client';
 import React, { JSX, useState } from 'react';
 
-import TrendingLoading from '@/app/(main)/[category]/[param]/@TrendingSection/loading';
 // import TrendingSectionSkeleton from '@/components/atoms/Skeleton/TrendingSectionSkeleton';
+import { TrendingSectionSkeleton } from '@/components/atoms/Skeleton';
 import {
   SectionTitle,
   TrendingCard,
@@ -23,7 +23,7 @@ const TrendingSection = (): JSX.Element => {
     }, 5000);
   };
   // if (loading) return <TrendingSectionSkeleton />;
-  if (loading) return <TrendingLoading />;
+  if (loading) return <TrendingSectionSkeleton />;
 
   return (
     <section

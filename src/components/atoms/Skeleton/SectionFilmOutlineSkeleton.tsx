@@ -1,8 +1,8 @@
 import { JSX } from 'react';
 
-import CardSkeleton from './CardSkeleton';
 import { TrendingSectionSkeleton } from './index';
 import { SectionTitleSkeleton } from './CommonSkeleton';
+import CardSkeleton from './MovieTemplateSkeleton/CardSkeleton';
 
 function SectionFilmOutlineSkeletonSkeleton(): JSX.Element {
   return (

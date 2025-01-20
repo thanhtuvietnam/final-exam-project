@@ -1,12 +1,13 @@
 'use client';
 
-import { JSX } from 'react';
+import { JSX, useState, useEffect } from 'react';
 import { useEffectOnce, useLocalStorage } from 'react-use';
 
 import { useStore } from '@/lib/store/store';
 import { Episode } from '@/types/apiMovieDetails';
 import { SectionTitle } from '@/components/atoms';
 import { useGetMovieDetail } from '@/api/endpoints/customhook';
+import { FilmWatchSkeleton } from '@/components/atoms/Skeleton';
 import {
   FilmBox,
   InfoTable,
@@ -18,20 +19,9 @@ const DEFAULT_TEXT = 'đang cập nhật...';
 const DEFAULT_QUALITY = 'HD';
 
 const FilmWatchSection = ({ slug }: { slug: string }): JSX.Element => {
-  const { data } = useGetMovieDetail(slug);
+  const [loading, setLoading] = useState(false);
+  const { data, status } = useGetMovieDetail(slug);
   const item = data?.item;
-
-  const {
-    episodes = [],
-    poster_url,
-    lang,
-    name,
-    quality = DEFAULT_QUALITY,
-    content,
-  } = item || {};
-
-  const serverData = episodes.flatMap((ep: Episode) => ep?.server_data || []);
-  const serverName = episodes.flatMap((ep: Episode) => ep?.server_name);
 
   const filmUrlStore = useStore((state) => state.filmUrl);
   const epStore = useStore((state) => state.episode);
@@ -44,6 +34,26 @@ const FilmWatchSection = ({ slug }: { slug: string }): JSX.Element => {
       addEpisode(value.filmUrl, value.ep);
     }
   });
+  // useEffect(() => {
+  //   if (data) {
+  //     setLoading(true);
+  //   }
+  // }, []);
+  // if (loading) return <FilmWatchSkeleton />;
+
+  if (status === 'pending') return <FilmWatchSkeleton />;
+
+  const {
+    episodes = [],
+    poster_url,
+    lang,
+    name,
+    quality = DEFAULT_QUALITY,
+    content,
+  } = item || {};
+
+  const serverData = episodes.flatMap((ep: Episode) => ep?.server_data || []);
+  const serverName = episodes.flatMap((ep: Episode) => ep?.server_name);
 
   return (
     <>
