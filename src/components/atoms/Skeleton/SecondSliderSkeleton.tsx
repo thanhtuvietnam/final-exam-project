@@ -6,8 +6,8 @@ import { JSX } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-import CardSkeleton from './CardSkeleton';
 import { SectionTitleSkeleton } from './CommonSkeleton';
+import CardSkeleton from './MovieTemplateSkeleton/CardSkeleton';
 
 const swiperBreakpoints = {
   1024: {

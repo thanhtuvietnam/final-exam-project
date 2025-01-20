@@ -1,5 +1,5 @@
 'use client';
-import { JSX, useState } from 'react';
+import { JSX, useState, useEffect } from 'react';
 import { useEffectOnce, useLocalStorage } from 'react-use';
 
 import { useStore } from '@/lib/store/store';
@@ -8,6 +8,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { Episode, Category } from '@/types/apiMovieDetails';
 import { useGetMovieDetail } from '@/api/endpoints/customhook';
 import { SideInfo, BackgroundGradient } from '@/components/atoms';
+import { BlockInfoSkeleton } from '@/components/atoms/Skeleton/BlockInfoSkeleton';
 import {
   CardInfo,
   InfoTable,
@@ -18,6 +19,7 @@ import {
 const DEFAULT_TEXT = 'đang cập nhật...';
 
 const BlockInfoSection = ({ slug }: { slug: string }): JSX.Element => {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const pathName = usePathname();
   const [expandInfoEpisodes, setExpandInfoEpisodes] = useState(false);
@@ -36,8 +38,14 @@ const BlockInfoSection = ({ slug }: { slug: string }): JSX.Element => {
   });
 
   const { data, status } = useGetMovieDetail(slug);
-  if (status === 'pending') return <div>BlockInfo Loading...</div>;
+  if (status === 'pending') return <BlockInfoSkeleton />;
 
+  // useEffect(() => {
+  //   if (data) setLoading(true);
+  // }, [data]);
+  //
+  // if (loading) return <BlockInfoSkeleton />;
+  //
   const item = data?.item;
   const actors = item?.actor.map((a) => a).join(', ') || DEFAULT_TEXT;
   const serverData =
@@ -85,20 +93,21 @@ const BlockInfoSection = ({ slug }: { slug: string }): JSX.Element => {
           </BackgroundGradient>
         </div>
         <SideInfo
-          actor={actors}
-          imdbScore={9.5}
-          country={country}
-          category={category}
-          newestEpisode={DEFAULT_TEXT}
-          director={director?.[0] || 'tuluu'}
+          /*eslint perfectionist/sort-jsx-props:"off"*/
+          title={item?.name || DEFAULT_TEXT}
           originalName={item?.origin_name || DEFAULT_TEXT}
-          episodeCurrent={item?.episode_current || DEFAULT_TEXT}
-          lang={lang}
-          qua={quality}
-          view={view || 1000}
           year={item?.year || 2021}
           time={item?.time || DEFAULT_TEXT}
-          title={item?.name || DEFAULT_TEXT}
+          imdbScore={9.5}
+          episodeCurrent={item?.episode_current || DEFAULT_TEXT}
+          newestEpisode={DEFAULT_TEXT}
+          country={country}
+          lang={lang}
+          qua={quality}
+          director={director?.[0] || 'NaN'}
+          actor={actors}
+          category={category}
+          view={view || 1000}
         />
       </div>
 

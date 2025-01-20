@@ -5,6 +5,7 @@ import { JSX } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { icons } from '@/lib/declarations/icons';
+import { toBase64, ShimmerImage } from '@/lib/utils/shimmer-image';
 import {
   ArrowBtn,
   BookMark,
@@ -32,9 +33,12 @@ const CardInfo = ({
         <Image
           width={300}
           height={500}
+          loading="lazy"
           src={thumbUrl}
           alt={`${altName}-thumbImage`}
+          placeholder={`data:image/svg+xml;base64,${toBase64(ShimmerImage(700, 475))}`}
           className="size-full overflow-hidden rounded-3xl"
+          decoding="async"
         />
         <div className="tw-flex absolute top-1 w-full px-1.5">
           <BookMark />
