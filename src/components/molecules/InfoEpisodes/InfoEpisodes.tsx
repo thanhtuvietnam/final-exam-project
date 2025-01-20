@@ -74,7 +74,7 @@ const InfoEpisodes = ({
         </h4>
         <ul className="tw-themes-3 flex flex-wrap items-center gap-1 rounded-lg p-1">
           {serverData.map((server) => (
-            <React.Fragment key={server.slug}>
+            <React.Fragment key={server.slug || server.name}>
               {MainLink && (
                 <EpisodeLink
                   handleClick={() =>

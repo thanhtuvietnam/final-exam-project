@@ -64,8 +64,9 @@
     // ".storybook/**/*.ts",
     // ".storybook/**/*.tsx",
     "postcss.config.mjs",
-    "src/lib/utils/misc/instrumentation.ts" // "jest.config.js",
-    // "jest.setup.js",
+    "src/lib/utils/misc/instrumentation.ts", // "jest.config.js",
+    "src/app/(main)/[category]/[param]/@TrendingSection/loading.tsxtsx",
+    "src/app/(main)/[category]/[param]/@FilmSections/loading.tsxtsx" // "jest.setup.js",
     // "tailwind.config.ts"
   ],
   "exclude": [

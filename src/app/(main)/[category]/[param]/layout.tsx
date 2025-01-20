@@ -14,6 +14,7 @@ export async function generateStaticParams() {
 }
 
 export default function CategoryLayout({
+  children,
   FilmSections,
   TrendingSection,
 }: {
@@ -22,9 +23,12 @@ export default function CategoryLayout({
   TrendingSection: React.ReactNode;
 }): JSX.Element {
   return (
-    <div className="flex w-full flex-col space-y-5 lg:flex-row lg:space-y-0 lg:space-x-3">
-      <div className="w-full grow space-y-4 lg:w-2/3">{FilmSections}</div>
-      {TrendingSection}
-    </div>
+    <>
+      {children}
+      <div className="flex w-full flex-col space-y-5 lg:flex-row lg:space-y-0 lg:space-x-3">
+        <div className="w-full grow space-y-4 lg:w-2/3">{FilmSections}</div>
+        {TrendingSection}
+      </div>
+    </>
   );
 }

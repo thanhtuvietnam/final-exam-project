@@ -10,9 +10,6 @@ import { ChevronDown } from '@/components/atoms';
 import useSplitContents from '@/hooks/useSplitContent';
 
 const slideInFromAbove = {
-  // hidden: { height: 'auto', opacity: 0, y: -10 },
-  // visible: { height: 'auto', opacity: 1, y: 0 },
-  // exit: { height: 0, opacity: 0, y: -21 },
   hidden: { opacity: 0, y: -50 },
   visible: { opacity: 1, y: 0 },
   exit: { opacity: 0, y: -50 },

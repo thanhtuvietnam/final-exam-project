@@ -13,6 +13,7 @@ interface LogoImgProps {
 
 const LogoImg = ({ width, className, height }: LogoImgProps): JSX.Element => {
   const { resolvedTheme } = useTheme();
+
   const logo =
     resolvedTheme === 'dark' ? '/logo/Logolight.png' : '/logo/Logodark.png';
 
@@ -22,11 +23,8 @@ const LogoImg = ({ width, className, height }: LogoImgProps): JSX.Element => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return <div />;
-
-  // const handleClick = (): void => {
-  //   // console.log('click');
-  // };
+  if (!mounted)
+    return <div className="skeleton h-[40px] w-[40px] rounded-lg" />;
 
   return (
     <>

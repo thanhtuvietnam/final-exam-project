@@ -33,6 +33,7 @@ const Slider = (): JSX.Element => {
     'phim-moi-cap-nhat',
     1,
   );
+
   // useEffect(() => {
   //   if (phimmoi) {
   //     setLoading(true);

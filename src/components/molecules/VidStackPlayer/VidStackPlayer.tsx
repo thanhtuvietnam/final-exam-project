@@ -6,6 +6,7 @@ import { useStore } from '@/lib/store/store';
 import { IMG_URL } from '@/lib/declarations/constant';
 import '@vidstack/react/player/styles/default/theme.css';
 import '@vidstack/react/player/styles/default/layouts/video.css';
+import { toBase64, ShimmerImage } from '@/lib/utils/shimmer-image';
 import { Poster, MediaPlayer, MediaProvider } from '@vidstack/react';
 import {
   defaultLayoutIcons,
@@ -41,9 +42,10 @@ const VidStackPlayer = ({
         <Poster className="vds-poster" asChild>
           <Image
             width={720}
+            alt={title}
             height={500}
             src={`${IMG_URL}/${poster}`}
-            alt="A description of my image."
+            placeholder={`data:image/svg+xml;base64,${toBase64(ShimmerImage(700, 475))}`}
           />
         </Poster>
       </MediaProvider>

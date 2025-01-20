@@ -1,10 +1,11 @@
 'use client';
 import { JSX, useState } from 'react';
 
-import { useTheme } from 'next-themes';
+// import { useTheme } from 'next-themes';
 import { useGetMovieLists } from '@/api/endpoints/customhook';
+import { MovieTemplateSkeleton } from '@/components/atoms/Skeleton';
 import { FilmSections, PageController } from '@/components/molecules';
-import FilmSectionLoading from '@/app/(main)/[category]/[param]/@FilmSections/loading';
+// import FilmSectionLoading from '@/app/(main)/[category]/[param]/@FilmSections/loading';
 
 const MoviesTemplate = ({
   category,
@@ -25,7 +26,7 @@ const MoviesTemplate = ({
   const { data, status } = useGetMovieLists(category, param, currentPage);
   // if (data) return <Loading />;
   // const datalength = data && data?.items.length;
-  if (status === 'pending') return <FilmSectionLoading />;
+  if (status === 'pending') return <MovieTemplateSkeleton />;
   if (status === 'error') return <div>Error</div>;
   // if (loading) return <Loading />;
 

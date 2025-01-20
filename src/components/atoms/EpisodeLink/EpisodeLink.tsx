@@ -29,7 +29,7 @@ const EpisodeLink = ({
       )}
       onClick={handleClick}
     >
-      {serverData?.slug}
+      {serverData?.slug || serverData?.name}
     </li>
   );
 };
