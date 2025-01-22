@@ -1,5 +1,4 @@
 'use client';
-
 import React, {
   JSX,
   useMemo,
@@ -10,7 +9,7 @@ import React, {
 
 import { cn } from '@/lib/utils';
 import { ActiveLink } from '@/components/atoms';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 
 interface PaginationProps {
   currentPage: number;
@@ -20,18 +19,6 @@ interface PaginationProps {
   onPageSizeChange?: (size: number) => void;
   pageSizeOptions?: number[];
 }
-
-/**
- * PageController component handles pagination controls.
- *
- * @param currentPage - The current active page number.
- * @param totalPages - The total number of pages available.
- * @param onPageChange - Callback function to handle page changes.
- * @param siblingCount - Number of sibling pages to display on each side of the current page.
- * @param onPageSizeChange - Optional callback function to handle page size changes.
- * @param pageSizeOptions - Array of available page size options.
- * @returns JSX.Element representing the pagination controls.
- */
 const PageController: React.FC<PaginationProps> = ({
   currentPage,
   totalPages,
@@ -40,9 +27,11 @@ const PageController: React.FC<PaginationProps> = ({
   onPageSizeChange,
   pageSizeOptions = [10, 20, 50],
 }): JSX.Element => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pathName = usePathname();
+
   const [inputPage, setInputPage] = useState<string>('');
-  // const router = useRouter();
-  // const searchParams = useSearchParams();
 
   const getPageNumbers = useCallback((): (number | string)[] => {
     const totalNumbers = siblingCount * 2 + 5;
@@ -81,11 +70,23 @@ const PageController: React.FC<PaginationProps> = ({
 
   const pages = useMemo(() => getPageNumbers(), [getPageNumbers]);
 
+  const updateSearchParam = useCallback(
+    (name: string, value: string) => {
+      // Merge the current searchParams with the new param set
+      const params = new URLSearchParams(searchParams);
+      params.set(name, value);
+      router.push(pathName + '?' + params.toString()); // or router.replace()
+    },
+    [router, pathName, searchParams],
+  );
+
   const handleClick = useCallback(
     (page: number | string) => {
-      const params = new URLSearchParams(window.location.search);
-      params.set('page', page.toString());
-      window.history.pushState({}, '', `${window.location.pathname}?${params}`);
+      updateSearchParam('page', page.toString());
+      // const params = new URLSearchParams(window.location.search);
+      // params.set('page', page.toString());
+      // window.history.pushState({}, '', `${window.location.pathname}?${params}`);
+
       // const params = new URLSearchParams(searchParams.toString());
       // params.set('page', page.toString());
       // router.push(`${window.location.pathname}?${params.toString()}`);
@@ -95,7 +96,7 @@ const PageController: React.FC<PaginationProps> = ({
         window.scrollTo(0, 0);
       }
     },
-    [onPageChange, currentPage],
+    [onPageChange, currentPage, updateSearchParam],
   );
 
   const handleKeyDown = useCallback(
@@ -231,3 +232,15 @@ const PageController: React.FC<PaginationProps> = ({
 };
 
 export default React.memo(PageController);
+
+/**
+ * PageController component handles pagination controls.
+ *
+ * @param currentPage - The current active page number.
+ * @param totalPages - The total number of pages available.
+ * @param onPageChange - Callback function to handle page changes.
+ * @param siblingCount - Number of sibling pages to display on each side of the current page.
+ * @param onPageSizeChange - Optional callback function to handle page size changes.
+ * @param pageSizeOptions - Array of available page size options.
+ * @returns JSX.Element representing the pagination controls.
+ */

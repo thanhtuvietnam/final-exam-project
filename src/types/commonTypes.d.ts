@@ -13,9 +13,9 @@ export interface Base {
  * Props for components with border effects
  */
 export interface BorderEffectProps extends Base {
-  isActive: boolean;
   topClassName?: string;
   bottomClassName?: string;
+  seeAllEffect?: boolean;
 }
 
 /**
