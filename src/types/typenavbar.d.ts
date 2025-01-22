@@ -44,7 +44,6 @@ export interface TabItem extends MenuItem {
 export interface TabState {
   dir: DirType;
   selected: string | null;
-  clickEffect: string | null;
   subMenuActiveId: string | null;
 }
 

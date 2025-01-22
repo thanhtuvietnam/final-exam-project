@@ -1,14 +1,30 @@
+'use client';
 import { JSX } from 'react';
 
-import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { useRouter } from 'next/navigation';
+import { useStore } from '@/lib/store/store';
 import { icons } from '@/lib/declarations/icons';
 
-const SeeAllBtn = ({ slug }: { slug?: string | undefined }): JSX.Element => {
+const SeeAllBtn = ({
+  slug,
+  clickEffect,
+}: {
+  slug?: string | undefined;
+  clickEffect?: string | undefined;
+}): JSX.Element => {
+  const router = useRouter();
+  const { currentPage, setCurrentPage, setNavClickedEffect } = useStore();
+
   return (
-    <Link
-      href={`${slug}?page=1`}
+    <button
+      // href={`${slug}?page=1`}
       className="group cursor-pointer rounded-xl border-4 border-violet-800/0 bg-transparent p-1 transition-all duration-500 hover:border-violet-800"
+      onClick={() => {
+        setCurrentPage(1);
+        router.push(`${slug}?page=${currentPage}`);
+        setNavClickedEffect(clickEffect ?? 'seeAll');
+      }}
     >
       <div className="relative flex items-center justify-center gap-4 overflow-hidden rounded-lg bg-violet-800 px-6 py-1 font-bold text-white">
         Xem tat ca
@@ -19,7 +35,7 @@ const SeeAllBtn = ({ slug }: { slug?: string | undefined }): JSX.Element => {
           )}
         />
       </div>
-    </Link>
+    </button>
   );
 };
 

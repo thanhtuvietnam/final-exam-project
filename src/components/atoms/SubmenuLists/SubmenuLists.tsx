@@ -3,6 +3,7 @@ import React, { JSX, useRef } from 'react';
 
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { useStore } from '@/lib/store/store';
 import { useClickOutSide } from '@/hooks/index';
 import { SubmenuListsProps } from '@/types/typenavbar';
 import { motion, AnimatePresence } from 'motion/react';
@@ -49,6 +50,7 @@ const SubmenuLists = ({
   tab,
 }: SubmenuListsProps): JSX.Element => {
   const ref = useRef(null);
+  const { currentPage, setCurrentPage } = useStore();
 
   const handleClick = (id: string | null): void => {
     if (subMenuActiveId === id) {
@@ -108,7 +110,7 @@ const SubmenuLists = ({
             className="rounded-lg select-none"
           >
             <Link
-              href={`${subMenu.path}?page=1`}
+              href={`${subMenu.path}?page=${currentPage}`}
               className={cn(
                 'block w-full rounded-lg py-3',
                 'text-bgdark/70 dark:text-bglight/70',
@@ -118,7 +120,10 @@ const SubmenuLists = ({
                   : 'border-r-4 border-transparent',
                 'hover:border-r-semantic-alizarin hover:text-bgdark dark:hover:border-r-main-deepCerise-500 dark:hover:text-bglight hover:border-r-4 hover:font-semibold',
               )}
-              onClick={() => handleClick(subMenu.id)}
+              onClick={() => {
+                // setCurrentPage(1);
+                handleClick(subMenu.id);
+              }}
             >
               {subMenu.label}
             </Link>

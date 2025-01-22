@@ -14,7 +14,6 @@ interface SliderTab {
 }
 
 const SliderTab = ({
-  theme,
   tabPic,
   tabPicAlt,
   vote_average,

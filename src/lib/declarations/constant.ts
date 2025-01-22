@@ -97,7 +97,7 @@ export const tabs: TabItem[] = [
   {
     id: nanoid(5),
     icon: icons.FaChildren,
-    label: 'HOẠT HÌNH',
+    label: 'PHIM HOẠT HÌNH',
     path: '/danh-sach/hoat-hinh',
   },
   {

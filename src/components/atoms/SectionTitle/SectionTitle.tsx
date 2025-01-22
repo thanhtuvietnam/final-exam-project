@@ -23,7 +23,7 @@ const SectionTitle = ({
       >
         {title || ''}
       </h2>
-      {showSeeAll && <SeeAllBtn slug={slug} />}
+      {showSeeAll && <SeeAllBtn slug={slug} clickEffect={title} />}
     </div>
   );
 };
